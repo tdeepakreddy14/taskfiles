@@ -9,13 +9,13 @@ class dupChar{
 		int[] count = new int[256];
 		
 		for(char ch : chrArray) {
-			if(ch != ' ') {
+			if(Character.isLetter(ch)) {
 				count[ch]++;
 			}
 		}
 		for(int i=0;i<count.length;i++) {
 			if(count[i] > 1) {
-					System.out.println("Character "+ (char)i +':'+count[i]);
+				System.out.println("Character "+ (char)i +':'+count[i]);
 			}
 		}
 	}
