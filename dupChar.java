@@ -6,8 +6,7 @@ class dupChar{
 		String enterString = sc.nextLine();
 		sc.close();
 		char[] chrArray = enterString.toCharArray();
-		int[] count = new int[256];
-		
+		int[] count = new int[128];
 		for(char ch : chrArray) {
 			if(Character.isLetter(ch)) {
 				count[ch]++;
@@ -15,7 +14,7 @@ class dupChar{
 		}
 		for(int i=0;i<count.length;i++) {
 			if(count[i] > 1) {
-				System.out.println("Character "+ (char)i +':'+count[i]);
+				System.out.println("Chara: "+ (char)i +",Count: "+count[i]+"times.");
 			}
 		}
 	}
