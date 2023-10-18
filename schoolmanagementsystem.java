@@ -2,72 +2,91 @@ class staff_members{
 	String name;
 	int empId;
 	double salary;
+	String responsibility;
+	String role;
 	public staff_members(String name,int empId,double salary) {
 		this.name = name;
 		this.empId=empId;
 		this.salary=salary;
 	}
-	public void get_details() {
-		System.out.println("emloye name : "+name);
-		System.out.println("emp id : " + empId);
-		System.out.println("emp salary : "+salary);
+	public String getName() {
+		return name;
+	}
+	public int getEmployeeID() {
+		return empId;
+	}
+	public double getSalary() {
+		return salary;
+	}
+	public void setresponsibility(String responsibility) {
+		this.responsibility=responsibility;
+	}
+	public String getResponsibility() {
+		return responsibility;
+	}
+	public void setrole(String role) {
+		this.role=role;
+	}
+	public String getrole() {
+		return role;
 	}
 }
 class teacher extends staff_members{
 	String subject;
-	public teacher(String name,int empId,double salary,String subject) {
-		super(name,empId,salary);
+	public teacher(String name,int empId,double salary) {
+		super(name,empId,salary); 
+	}
+	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-	public void responsibility(){
-		System.out.println("responsible for giving knowledge to students");
-	}
-	public void role() {
-		System.out.println("roll : "+subject+" Teacher");
+	public String getSubject() {
+		return subject;
 	}
 }
 class administrator extends staff_members{
+	String work;
 	public administrator(String name,int empId,double salary) {
 		super(name,empId,salary);
-		
 	}
-	public void responsibility(){
-		System.out.println("responsible for organizing and storing information in dogotal form");
+	public void setwork(String work) {
+		this.work = work;
 	}
-	
-	public void role() {
-		System.out.println("roll : administrator");
+	public String getwork() {
+		return work;
 	}
 }
 class supportstaff extends staff_members{
+	String subject;
 	public supportstaff(String name,int empId,double salary) {
 		super(name,empId,salary);
 	}
-	public void responsibility(){
-		System.out.println("responsible for assisting and supporting students");
+	public void setsubject(String subject) {
+		this.subject=subject;
 	}
-	public void role() {
-		System.out.println("roll : supportstaff");
+	public String getsubject() {
+		return subject;
 	}
 }
 
 class schoolmanagementsystem{
 	public static void main(String[] args) {
-		teacher Teacher = new teacher("varshini",143,50000,"math");
-		Teacher.get_details();
-		Teacher.responsibility();
-		Teacher.role();
-		System.out.println(" ");
+		teacher Teacher = new teacher("varshini",143,50000);
+		Teacher.setSubject("math");
+		Teacher.setresponsibility("responsible for giving knowledge to students");
+		Teacher.setrole("Teacher");
+		System.out.println("Teacher Details-  name:" + Teacher.getName() + ", empId:" + Teacher.getEmployeeID() + ", salary:" + Teacher.getSalary()+", subject:" + Teacher.getSubject()+"\nresponsibility - "+Teacher.getResponsibility()+"\nrole - "+Teacher.getrole()+"\n");
 		
 		administrator adm = new administrator("yashu",223,35000);
-		adm.get_details();
-		adm.responsibility();
-		adm.role();
-		System.out.println(' ');
+		adm.setresponsibility("responsible for organizing and storing information in dogotal form");
+		adm.setrole("administrator");
+		adm.setwork("manage files");
+		System.out.println("administrator Details-  name:" + adm.getName() + ", empId:" + adm.getEmployeeID() + ", salary:" + adm.getSalary()+"\nresponsibility - "+adm.getResponsibility()+"\nwork: " +adm.getwork()+"\nrole - "+adm.getrole()+"\n");
 		
 		supportstaff suppstaff = new supportstaff("charan",224,25000);
-		suppstaff.get_details();
-		suppstaff.responsibility();
-		suppstaff.role();
+		suppstaff.setsubject("math");
+		suppstaff.setresponsibility("responsible for assisting and supporting students");
+		suppstaff.setrole("supportstaff");
+		System.out.println("suppstaff Details-  name:" + suppstaff.getName() + ", empId:" + suppstaff.getEmployeeID() + ", salary:" + suppstaff.getSalary()+", subject:" + suppstaff.getsubject()+"\nresponsibility - "+suppstaff.getResponsibility()+"\nrole - "+suppstaff.getrole());
+		
 	}
 }
