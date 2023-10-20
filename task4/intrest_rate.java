@@ -1,31 +1,25 @@
 package task4;
 abstract class bank{
-	public abstract double getintrest();
+	public abstract double intrest();
 }
 class SavingsAccount extends bank{
-	private double intrest;
-	public void setintrest(double intrest) {
-		this.intrest=intrest;
+	//private double intrest;
+	public double intrest() {
+		return 0.08;
 	}
-	public double getintrest() {
-		return intrest;
-	}
+	
 }
-class CheckingAccount{
-	private double intrest;
-	public void setintrest(double intrest) {
-		this.intrest=intrest;
-	}
-	public double getintrest() {
-		return intrest;
+class CheckingAccount extends bank{
+	public double intrest() {
+		return 1.0;
 	}
 }
 public class intrest_rate {
 	public static void main(String[] args) {
 		SavingsAccount sa = new SavingsAccount();
-		sa.setintrest(1.06);
+		sa.intrest();
 		CheckingAccount ca = new CheckingAccount();
-		ca.setintrest(0.06);
-		System.out.println("Savings Account intrest : "+sa.getintrest()+"\nChecking Account intrest : "+ca.getintrest());
+		ca.intrest();
+		System.out.println("Savings Account intrest : "+sa.intrest()+"\nChecking Account intrest : "+ca.intrest());
 	}
 }
