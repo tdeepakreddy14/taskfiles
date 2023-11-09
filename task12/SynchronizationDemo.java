@@ -1,36 +1,27 @@
 class Table{
-	public synchronized void printTable(int n){
-		for(int i=1;i<=5;i++){
-			System.out.println(n*i);
-			try{
-				Thread.sleep(500);
-			}catch(Exception e){
-				System.out.println(e);
-			}
-		}
+	private int count = 0; 
+	
+	public synchronized void increment(){
+		System.out.println(++count);
+	}
+	public  synchronized void decrement(){
+		System.out.println(--count);
 	}
 }
 class MyThread extends Thread{
-	Table th;
-	int n;
-	public MyThread(Table th,int n){
-		this.th = th;
-		this.n = n ;
-	}
-	public void setNum(int n){
-		this.n = n;
-	}
-	public void run(){
-		th.printTable(n);
+	static Table th = new Table();
+	
+	public void run() {
+		th.increment();
+		th.increment();
+		th.increment();
 	}
 }
-
 public class SynchronizationDemo{
 	public static void main(String args[]){
-		Table table = new Table();
-		MyThread thread1 = new MyThread(table,2);
-		MyThread thread2 = new MyThread(table,10);
+		MyThread thread1 = new MyThread();
+		MyThread thread2 = new MyThread();
 		thread1.start();
-		thread2.start();
+		thread2.start();		
 	}
 }
