@@ -17,9 +17,6 @@ public class OneDirectoryToAnother{
             			throw new IOException("Source file does not exist.");
        			}
 			File DFile = new File(destFile);
-			if (!DFile.isDirectory()){
-				throw new IOException("Directory does not exist.");
-			}
 
 			if(sFile.renameTo(DFile)){
 				sFile.delete();
